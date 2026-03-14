@@ -1,142 +1,125 @@
-# Spotify-Customer-Churn-Analysis
-🎧 Spotify Customer Churn Analysis
+# 🎵 Spotify Customer Churn Analysis
 
-📌 Project Overview
+A end-to-end data analysis project exploring customer churn behaviour on Spotify. Raw data was modelled in **Google BigQuery** using fact and dimension tables, then visualized in a 5-page **Power BI** dashboard to surface actionable retention insights.
 
-This project analyzes user churn on Spotify using a dataset of 8,000 users across subscription types and geographies. The goal is to identify patterns in user behavior and subscription factors driving churn and to provide data-driven recommendations to improve retention and revenue.
+---
 
-Workflow:
-	•	Data Cleaning: Power Query
-	•	Data Transformation & Feature Engineering: Google BigQuery (SQL)
-	•	Data Modeling & Visualization: Power BI
+## 📌 Project Overview & Goals
 
-⸻
+Customer churn is one of the most critical metrics for any subscription-based business. This project aims to:
 
-🎯 Business Objectives
-	•	Identify the top predictors of churn among Spotify users
-	•	Segment users based on engagement, subscription, and demographics
-	•	Quantify revenue at risk from churned users
-	•	Recommend targeted retention strategies to reduce churn
+- Identify the key behavioural, demographic, and pricing signals that predict churn
+- Quantify revenue at risk from churned users
+- Segment users by risk level to enable targeted retention strategies
+- Deliver clear, recruiter-ready visualizations that translate data into business decisions
 
-⸻
+---
 
-🛠 Tech Stack
-	•	Data Cleaning: Power Query
-	•	SQL / Data Warehouse: Google BigQuery
-	•	Visualization & Dashboarding: Power BI
-	•	Dataset: Synthezied Spotify Customer Behavior Dataset from Kaggle
+## 🛠️ Tools & Technologies
 
-⸻
+| Tool | Purpose |
+|---|---|
+| Google BigQuery (SQL) | Data modelling — fact & dimension tables |
+| Power BI | Dashboard design & data visualization |
 
-📂 Repository Structure
-spotify-customer-churn-analysis/
-│
-├── README.md
-├── data/
-│   ├── raw/             # Original dataset
-│   └── processed/       # Cleaned and engineered dataset
+---
+
+## 📊 Dashboard Structure
+
+The Power BI report is structured across 5 pages, each answering a specific business question.
+
+### Page 1 — Executive Summary
+
+High-level snapshot of the churn problem:
+- **KPI Cards:** Overall churn %, churned user count, avg subscription price, revenue at risk estimate
+- **Donut Chart:** Churned vs retained user split
+- **Bar Chart:** Churn rate broken down by subscription type
+
+---
+
+### Page 2 — Behavioral Analysis
+
+Digs into how user listening habits correlate with churn:
+- **Box Plot / Histogram:** Listening time distribution by churn status
+- **Scatter Plot:** Skip rate vs songs played
+- **Clustered Bar:** Offline listening behaviour vs churn
+- **Heatmap / Matrix:** Device type × churn rate
+
+---
+
+### Page 3 — Monetization & Pricing
+
+Examines how pricing and ads influence churn decisions:
+- **Bar Chart:** Churn rate broken down by price tier
+- **Scatter Plot:** Ads per week vs churn rate
+- **Stacked Bar:** Free vs premium churn comparison side by side
+
+---
+
+### Page 4 — Demographics & Segmentation
+
+Profiles which user groups churn most:
+- **Map Visual:** Churn rate by country
+- **Bar Chart:** Churn broken down by age group
+- **Matrix Table:** Gender fairness check across churn segments
+
+---
+
+### Page 5 — Risk Segments & Recommendations
+
+Translates findings into prioritized retention actions:
+- **Funnel / Table:** Users segmented into high / medium / low churn risk
+- **KPI Cards:** Estimated revenue saved through intervention
+- **Text Insight Boxes:** 3 key recommendations for the business
+
+---
+
+## 🗄️ Data Modelling (BigQuery)
+
+The data was structured using a **star schema** in Google BigQuery:
+
+- **Fact Table:** Core churn events and subscription metrics per user
+- **Dimension Tables:** User demographics, subscription plans, device types, listening behaviour
+
+This modelling approach ensured clean, performant queries and a scalable foundation for the Power BI reports.
+
+---
+
+## 🔍 Key Findings
+
+- Churn is strongly correlated with **low listening time** and **high skip rates**, indicating disengaged users are at the highest risk
+- Users on **free plans** exposed to more ads per week showed significantly higher churn rates, pointing to ad friction as a retention lever
+- **Price tier sensitivity** was evident — higher-tier subscribers churned less, suggesting perceived value plays a key role
+- Certain **device types and age groups** showed disproportionately high churn, revealing targeted segments for re-engagement campaigns
+- The risk segmentation model identifies users likely to churn, enabling proactive outreach before cancellation occurs
+
+---
+
+## 📁 Repository Structure
+
+```
+spotify-churn-analysis/
 │
 ├── sql/
-│   ├── 01_data_cleaning.sql
-│   ├── 02_feature_engineering.sql
-│   └── 03_churn_views.sql
-│
-├── powerquery/
-│   └── powerquery_steps.md
+│   ├── fact_table.sql
+│   └── dim_tables.sql
 │
 ├── powerbi/
-│   ├── spotify_churn_dashboard.pbix
-│   └── dashboard_screenshots/
+│   └── spotify_churn_dashboard.pbix
 │
-└── docs/
-    ├── data_dictionary.md
-    ├── data_model.md
-    └── insights_and_recommendations.md
+└── README.md
+```
 
-🔄 Project Workflow
+---
 
-1️⃣ Data Cleaning (Power Query)
-	•	Removed missing or invalid values (~2% of dataset)
-	•	Standardized categorical variables (subscription type, device type)
-	•	Converted data types for numerical analysis
-	•	Created tenure bands: New (<3 months), Developing (3–12 months), Loyal (>12 months)
-	•	Calculated engagement scores based on listening time and skip rate
+## 🚀 Getting Started
 
-⸻
+1. **BigQuery:** Run the SQL scripts in the `/sql` folder to recreate the fact and dimension tables in your own GCP project
+2. **Power BI:** Open the `.pbix` file and update the data source connection to point to your BigQuery instance
 
-2️⃣ Data Transformation & Feature Engineering (BigQuery SQL)
-	•	Built aggregated churn summary view by subscription type, device, and country
-	•	Generated tenure and engagement segmentation for actionable insights
-	•	Calculated revenue at risk from churned users (~$150k monthly)
-	•	Prepared cleaned views for Power BI dashboards
+---
 
-Example SQL:
--- Create tenure group
-CASE 
-    WHEN tenure_months <= 3 THEN 'New'
-    WHEN tenure_months <= 12 THEN 'Developing'
-    ELSE 'Loyal'
-END AS tenure_group
+## 👤 Author
 
-3️⃣ Data Modeling & Visualization (Power BI)
-	•	Star schema design: Fact table (user engagement & subscriptions) + dimension tables (user, subscription, device, geography)
-	•	Created dashboards for executive insights: churn by subscription type, engagement, device, and country
-	•	Designed visuals for decision-making, highlighting high-risk segments
-
-⸻
-
-📊 Key Insights & Metrics
-### Insight
-1. Free users have highest churn
-2. High skip-rate users churn faster
-3. Short-tenure users (<3 months) are highest risk
-4. Revenue at risk
-5. Country-specific churn
-
-### Metric
-1. 42% vs 15% for Premium users
-2. Avg. 55% skip rate among churned users
-3. 60% of churn occurs in first 3 months
-4. ~$150k monthly
-5. US & Brazil show elevated churn (~30–35%)
-
-💡 Business Recommendations
-	1.	Engagement campaigns for new users (first 90 days) to improve retention
-	2.	Upgrade incentives for high-engagement Free users
-	3.	Personalized playlists & notifications for high skip-rate users
-	4.	Retention alerts for declining listening time
-	5.	Country-specific initiatives for high-churn regions
-
-Potential impact: reducing churn by 10–15% could save ~$50k–$75k monthly in lost revenue
-
-⸻
-
-📈 Dashboard Preview
-
-Include screenshots from your Power BI dashboard in powerbi/dashboard_screenshots/ and embed them:
-![Executive Summary](powerbi/dashboard_screenshots/executive_summary.png)
-![Churn Drivers](powerbi/dashboard_screenshots/churn_drivers.png)
-
-📘 Data Dictionary (Sample)
-Column                  Description
-user_id                 Unique user identifier
-subscription_type       Free, Premium, Family, Student
-listening_time          Avg. daily listening time (minutes)
-songs_played_per_day    Daily songs played
-skip_rate               Percentage of skipped songs
-device_type             Mobile, Desktop, Tablet
-churn                   Whether the user discontinued service
-
-🚀 Future Improvements
-	•	Predictive churn model using logistic regression or XGBoost
-	•	Churn risk scoring dashboard for proactive interventions
-	•	Automate ETL pipeline for ongoing updates
-	•	Deploy dashboards via Power BI Service
-	•	Conduct cohort analysis to refine retention strategies
-
-🧠 Skills Demonstrated
-	•	End-to-end data cleaning & transformation
-	•	SQL feature engineering & view creation
-	•	Star schema modeling & Power BI dashboarding
-	•	Customer churn analysis & business recommendations
-	•	Translating data insights into actionable strategies
+**Shao Herng Gan**
+[https://www.linkedin.com/in/shao-herng-gan/](#) · [Portfolio](#)
