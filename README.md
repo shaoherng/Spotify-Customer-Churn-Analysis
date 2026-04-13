@@ -158,6 +158,22 @@ Identifies the behaviours free-tier users are likely to exhibit before upgrading
 - **Scatter Plot:** Free users churn rate by ads listened per week (segmented by ad buckets: 1-10, 11-20, 21-30, 31-40, 41-50)
 - **Slicers:** Subscription type, country, age, and gender filters
 
+Examines whether payment status or engagement behaviors drive retention, revealing that engagement—not subscription tier—is the primary retention factor:
+
+- **Scatter Plots (Churn vs. Engagement by Paid Status):**
+  - Churn rate vs. listening time across engagement tiers (Passive, Engaged, Power)
+  - Churn rate vs. songs played per day across engagement tiers (Passice, Engaged, Power)
+  - Churn rate vs. skip rate across skip behavior levels (Low, Medium, High)
+  - Each plot compares Free vs. Paid users to isolate payment effects
+
+- **Stacked Column Chart:**
+  - Churn rate comparison by device type (Mobile, Desktop, Web) for Free vs. Paid users
+
+- **Scatter Plot (Free Users Only):**
+  - Churn rate by weekly ad exposure, segmented into buckets (1-10, 11-20, 21-30, 31-40, 41-50 ads)
+
+- **Slicers:** Subscription type, country, age, and gender filters
+
 ---
 
 ## 🔍 Key Findings & Recommendations
