@@ -147,17 +147,6 @@ Explores which customer segments are more profitable:
 
 ### Page 4 — Churn Risk Analysis
 
-Identifies the behaviours free-tier users are likely to exhibit before upgrading or churning:
-- **Column Charts:**
-  - Average listening time comparison between Free vs Paid users
-  - Average songs played per day comparison between Free vs Paid users
-  - Average skip rate comparison between Free vs Paid users
-- **Stacked Bar Charts:**
-  - Free vs Paid user distribution by device type (Desktop, Web, Mobile)
-  - Free vs Paid user distribution by listening platform (Offline, Online)
-- **Scatter Plot:** Free users churn rate by ads listened per week (segmented by ad buckets: 1-10, 11-20, 21-30, 31-40, 41-50)
-- **Slicers:** Subscription type, country, age, and gender filters
-
 Examines whether payment status or engagement behaviors drive retention, revealing that engagement—not subscription tier—is the primary retention factor:
 
 - **Scatter Plots (Churn vs. Engagement by Paid Status):**
