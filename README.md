@@ -196,7 +196,7 @@ Examines whether payment status or engagement behaviors drive retention:
 
 ---
 
-![Behaviour](img/behaviour.png)
+![Behaviour](img/behaviour.png?v=2)
 
 ### 2. Behavioural Churn Indicators
 **Finding:** Users with **high skip rates, mobile-only usage, and frequent offline listening** show elevated churn rates.
@@ -207,7 +207,7 @@ Examines whether payment status or engagement behaviors drive retention:
 
 ---
 
-![Revenue](img/revenue.png)
+![Revenue](img/revenue.png?v=2)
 
 ### 3. Profitability Sweet Spots
 **Finding:** **Germany** dominates profitability across all markets. **Male users** deliver the highest Average Revenue Per Subscription (ARPS) with lowest churn. Users in their **30s** offer the best balance of revenue and retention, while 50s drive peak ARPS.
@@ -218,7 +218,7 @@ Examines whether payment status or engagement behaviors drive retention:
 
 ---
 
-![Churn Risk](img/churn_risk.png)
+![Churn Risk](img/churn_risk.png?v=2)
 
 ### 4. Ad Fatigue Threshold
 **Finding:** Free users exposed to **41-50 ads weekly churn at 27.6%**, the highest rate among free tiers, showing a strong positive correlation between ad frequency and attrition.
@@ -253,7 +253,11 @@ spotify-churn-analysis/
 │   └── spotify.png
 │
 ├── img/
-│   └── data_modeling.png
+│   ├── behaviour.png
+│   ├── churn_risk.png
+│   ├── data_modeling.png
+│   ├── overview.png
+│   └── revenue.png
 │
 ├── powerbi/
 │   └── spotify_churn_dashboard.pbix
