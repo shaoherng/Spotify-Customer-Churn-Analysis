@@ -148,6 +148,20 @@ Explores which customer segments are more profitable:
 
 - **Slicers:** Country, age, and gender filters
 
+## ⚠️ Assumptions & Limitations
+
+**Revenue Metric:** This analysis uses **Average Revenue Per Subscription (ARPS)** rather than Average Revenue Per User (ARPU). 
+
+**Why this matters:** Family subscriptions ($14.99/month) cover multiple users under a single payment, meaning ARPS treats a 4-person household as one "$14.99 customer" rather than four "$3.75 customers." This inflates apparent revenue for family plan cohorts and may skew profitability insights where family plans are concentrated.
+
+**Impact on findings:** 
+- Country/age/gender comparisons in **Finding #3 (Profitability Sweet Spots)** may overweight markets with higher family plan adoption
+- Churn rate calculations remain accurate (they're user-level), but revenue-to-churn ratios should be interpreted cautiously
+
+**Why ARPS was chosen:** The dataset does not include family account membership data, making true ARPU calculation impossible without additional user linkage tables.
+
+---
+
 ### Page 4 — Churn Risk Analysis
 
 Examines whether payment status or engagement behaviors drive retention:
@@ -198,7 +212,7 @@ Examines whether payment status or engagement behaviors drive retention:
 ---
 
 ### 4. Ad Fatigue Threshold
-**Finding:** Free users exposed to **41-50 ads weekly churn at 27.6%**—the highest rate among free tiers, showing a strong positive correlation between ad frequency and attrition.
+**Finding:** Free users exposed to **41-50 ads weekly churn at 27.6%**, the highest rate among free tiers, showing a strong positive correlation between ad frequency and attrition.
 
 **Why it matters:** Aggressive ad load monetizes in the short term but accelerates user loss, reducing lifetime value.
 
@@ -211,7 +225,7 @@ Examines whether payment status or engagement behaviors drive retention:
 
 **Why it matters:** Converting free users to paid won't improve retention if their engagement remains low. The premium tier may suffer from a value perception gap.
 
-**Recommendation:** Audit premium features against user expectations—run surveys asking paid churners "what would have kept you subscribed?" Shift strategy from conversion-focused to **engagement-first**: build features that drive habitual usage (personalized playlists, social sharing, exclusive early releases), *then* gate them behind paywalls. Consider usage-based pricing tiers to better match value to engagement levels.
+**Recommendation:** Audit premium features against user expectations, run surveys asking paid churners "what would have kept you subscribed?" Shift strategy from conversion-focused to **engagement-first**: build features that drive habitual usage (personalized playlists, social sharing, exclusive early releases), then gate them behind paywalls. Consider usage-based pricing tiers to better match value to engagement levels.
 
 ---
 
