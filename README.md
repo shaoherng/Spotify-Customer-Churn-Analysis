@@ -83,6 +83,7 @@ The raw Kaggle dataset served as the **fact table**, containing one row per user
 | `is_churned` | Binary flag (1 or 0) |
 | `subscription_status` | Churned or Renewed |
 
+
 Below is how they all connect together in Power BI
 ![Star Schema](img/data_modeling.png)
 
@@ -184,6 +185,8 @@ Examines whether payment status or engagement behaviors drive retention:
 
 ## 🔍 Key Findings & Recommendations
 
+![Overview](img/overview.png)
+
 ### 1. Geographic & Demographic Churn Hotspots
 **Finding:** Churn peaks at **32.6%** among **Student plan users in their 20s-30s** across **Pakistan, Germany, and France**, with additional concentration in the "Other" gender category.
 
@@ -193,7 +196,9 @@ Examines whether payment status or engagement behaviors drive retention:
 
 ---
 
-### 2. Behavioral Churn Indicators
+![Behaviour](img/behaviour.png)
+
+### 2. Behavioural Churn Indicators
 **Finding:** Users with **high skip rates, mobile-only usage, and frequent offline listening** show elevated churn rates.
 
 **Why it matters:** These behaviors signal dissatisfaction with recommendations (high skips) or situational/casual usage (mobile/offline) rather than habitual engagement.
@@ -201,6 +206,8 @@ Examines whether payment status or engagement behaviors drive retention:
 **Recommendation:** Flag high-skip users for improved recommendation tuning within their first 30 days. For mobile-heavy users, drive cross-device adoption through desktop-exclusive features (e.g., enhanced playlists, lyrics) to increase platform stickiness.
 
 ---
+
+![Revenue](img/revenue.png)
 
 ### 3. Profitability Sweet Spots
 **Finding:** **Germany** dominates profitability across all markets. **Male users** deliver the highest Average Revenue Per Subscription (ARPS) with lowest churn. Users in their **30s** offer the best balance of revenue and retention, while 50s drive peak ARPS.
@@ -210,6 +217,8 @@ Examines whether payment status or engagement behaviors drive retention:
 **Recommendation:** Prioritize acquisition spend on 30s males in Germany and similar high-GDP markets. Develop retention programs for 50s users (who may have higher willingness to pay) while scaling proven engagement tactics from the 30s cohort.
 
 ---
+
+![Churn Risk](img/churn_risk.png)
 
 ### 4. Ad Fatigue Threshold
 **Finding:** Free users exposed to **41-50 ads weekly churn at 27.6%**, the highest rate among free tiers, showing a strong positive correlation between ad frequency and attrition.
