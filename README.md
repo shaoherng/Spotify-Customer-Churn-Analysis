@@ -2,7 +2,7 @@
 
 An end-to-end data analytics project analyzing customer churn behaviour for a music streaming platform. A synthetic dataset was sourced from Kaggle, modelled in **Google BigQuery** using a star schema, and visualized in a 4-page interactive **Power BI** dashboard to surface actionable retention and monetization insights.
 
-📊 **[View Live Dashboard](#)** ← *(replace `#` with your Power BI Service URL)*
+📊 **[View Live Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNWY4YTU5OTUtZDA3MS00ZDhiLWEyYWItYzM4Y2M3MzVjYmJkIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9)**
 
 ---
 
@@ -83,6 +83,9 @@ The raw Kaggle dataset served as the **fact table**, containing one row per user
 | `is_churned` | Binary flag (1 or 0) |
 | `subscription_status` | Churned or Renewed |
 
+Below is how they all connect together in Power BI
+![Star Schema](img/data_modeling.png)
+
 ---
 
 ## 📐 Calculated Columns (Power BI)
@@ -147,7 +150,7 @@ Explores which customer segments are more profitable:
 
 ### Page 4 — Churn Risk Analysis
 
-Examines whether payment status or engagement behaviors drive retention, revealing that engagement—not subscription tier—is the primary retention factor:
+Examines whether payment status or engagement behaviors drive retention:
 
 - **Scatter Plots (Churn vs. Engagement by Paid Status):**
   - Churn rate vs. listening time across engagement tiers (Passive, Engaged, Power)
@@ -217,18 +220,26 @@ Examines whether payment status or engagement behaviors drive retention, reveali
 ```
 spotify-churn-analysis/
 │
-├── sql/
-│   ├── fact_users.sql
-│   ├── dim_subscription.sql
-│   ├── dim_country.sql
-│   ├── dim_offline_listening.sql
-│   └── dim_is_churned.sql
+├── data/
+│   └── spotify_churn_dataset.csv
 │
 ├── dax/
 │   └── calculated_columns.md
 │
+├── icons/
+│   └── spotify.png
+│
+├── img/
+│   └── data_modeling.png
+│
 ├── powerbi/
 │   └── spotify_churn_dashboard.pbix
+│
+├── sql/
+│   ├── create_dim_country.sql
+│   ├── create_dim_is_churned.sql
+│   ├── create_dim_offline_listening.sql
+│   └── create_dim_subscription.sql
 │
 └── README.md
 ```
@@ -237,9 +248,9 @@ spotify-churn-analysis/
 
 ## 🚀 Getting Started
 
-> 🌐 **Just want to explore the dashboard?** View it live [here](#) ← *(replace `#` with your Power BI Service URL)*
+> 🌐 **Just want to explore the dashboard?** View it live [here](https://app.powerbi.com/view?r=eyJrIjoiNWY4YTU5OTUtZDA3MS00ZDhiLWEyYWItYzM4Y2M3MzVjYmJkIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9)
 
-1. **BigQuery:** Run the SQL scripts in the `/sql` folder to recreate the fact and dimension tables in your own GCP project. Ensure the dataset is created in BigQuery before running the dimension table scripts, as they reference the uploaded fact table.
+1. **BigQuery:** Run the SQL scripts in the `/sql` folder to recreate the fact and dimension tables in your own GCP project and remember to change the project_id to your project ID. Ensure the dataset is created in BigQuery before running the dimension table scripts, as they reference the uploaded fact table.
 2. **Power BI:** Open the `.pbix` file and update the BigQuery data source connection under **Transform Data → Data Source Settings** to point to your own GCP project and dataset.
 3. **Calculated Columns:** The DAX calculated columns (`user_status`, `offline_status`, `age_group`, `ads_bucket`, `listening_time_bucket`, `songs_played_bucket`, `skip_rate_bucket`) are already embedded in the `.pbix` file and will populate automatically once the data connection is refreshed.
 

@@ -23,7 +23,7 @@ SWITCH(TRUE(),
 
 ## `user_status`
 
-**Purpose:** A human-readable active/inactive label derived from listening behaviour. Users with zero or very low listening time are flagged as inactive, which helps segment churn risk in the Behaviour Analysis page without exposing raw numeric thresholds to report consumers.
+**Purpose:** A human-readable active/churned label derived from listening behaviour. It helps segment churn risk in the Behaviour Analysis page without exposing raw numeric thresholds to report consumers.
 
 ```dax
 user_status = 
@@ -45,7 +45,7 @@ IF(fact_customer_churn[offline_listening] = 0, "Online", "Offline")
 
 ## `ads_bucket`
 
-**Purpose:** Ad exposure (`ads_listened_per_week`) is a continuous variable. Bucketing it into low, medium, and high tiers allows the Finance Analysis page to show how ad friction increases churn risk across meaningful segments rather than plotting a noisy scatter of individual values.
+**Purpose:** Ad exposure (`ads_listened_per_week`) is a continuous variable. Bucketing it into low, medium, and high tiers allows the Churn Risk Analysis page to show how ad friction increases churn risk across meaningful segments rather than plotting a noisy scatter of individual values.
 
 ```dax
 ads_bucket = 
